@@ -1,8 +1,11 @@
-__version__ = "3.0.3"
-__version_info__ = (int(v) for v in __version__.split("."))
-
 import base64
+import importlib.metadata
 import struct
+
+__version__ = importlib.metadata.version("django-pgcrypto")
+__version_info__ = tuple(
+    int(num) if num.isdigit() else num for num in __version__.split(".")
+)
 
 CRC24_INIT = 0xB704CE
 CRC24_POLY = 0x1864CFB

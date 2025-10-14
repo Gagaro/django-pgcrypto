@@ -1,9 +1,6 @@
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-
 [project]
 name = "django-pgcrypto"
+version = "3.1.0"
 authors = [
     {name = "Dan Watson", email = "dcwatson@gmail.com"},
 ]
@@ -20,19 +17,19 @@ classifiers = [
 dependencies = [
     "cryptography",
 ]
-dynamic = ["version"]
 
 [project.urls]
 Repository = "https://github.com/dcwatson/django-pgcrypto"
 
-[tool.hatch.build.targets.wheel]
-packages = ["pgcrypto"]
-
-[tool.hatch.version]
-path = "pgcrypto/base.py"
-
-[tool.uv]
-dev-dependencies = [
+[dependency-groups]
+dev = [
     "django",
     "psycopg[binary]",
 ]
+
+[build-system]
+requires = ["uv_build>=0.9.2,<0.10.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "pgcrypto"

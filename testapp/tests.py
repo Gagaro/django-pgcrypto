@@ -263,33 +263,33 @@ class FieldTests(TestCase):
         self.assertEqual(employee.value, "999-05-6728 - 42")
 
     def test_exact(self):
-        employee = Employee.objects.filter(email__exact="johnson.sally@example.com").get()
+        employee = Employee.objects.get(email__exact="johnson.sally@example.com")
         self.assertEqual(employee.email, "johnson.sally@example.com")
 
     def test_iexact(self):
-        employee = Employee.objects.filter(email__iexact="Johnson.saLly@ExamPle.cOm").get()
+        employee = Employee.objects.get(email__iexact="Johnson.saLly@ExamPle.cOm")
         self.assertEqual(employee.email, "johnson.sally@example.com")
 
     def test_contains(self):
-        employee = Employee.objects.filter(email__contains="sal").get()
+        employee = Employee.objects.get(email__contains="sal")
         self.assertEqual(employee.email, "johnson.sally@example.com")
 
     def test_icontains(self):
-        employee = Employee.objects.filter(email__icontains="SAL").get()
+        employee = Employee.objects.get(email__icontains="SAL")
         self.assertEqual(employee.email, "johnson.sally@example.com")
 
     def test_startswith(self):
-        employee = Employee.objects.filter(email__startswith="john").get()
+        employee = Employee.objects.get(email__startswith="john")
         self.assertEqual(employee.email, "johnson.sally@example.com")
 
     def test_istartswith(self):
-        employee = Employee.objects.filter(email__istartswith="JOHN").get()
+        employee = Employee.objects.get(email__istartswith="JOHN")
         self.assertEqual(employee.email, "johnson.sally@example.com")
 
     def test_endswith(self):
-        employee = Employee.objects.filter(email__endswith="com").get()
+        employee = Employee.objects.get(email__endswith="com")
         self.assertEqual(employee.email, "johnson.sally@example.com")
 
     def test_iendswith(self):
-        employee = Employee.objects.filter(email__iendswith="COM").get()
+        employee = Employee.objects.get(email__iendswith="COM")
         self.assertEqual(employee.email, "johnson.sally@example.com")

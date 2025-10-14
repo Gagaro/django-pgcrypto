@@ -1,5 +1,10 @@
 # Changelog for django-pgcrypto
 
+## 3.1.0 (in development)
+
+* Dropped support for Python 3.9, test on Python 3.14
+
+
 ## 3.0.3 (2025-02-04)
 
 * Added `iexact` lookup (https://github.com/dcwatson/django-pgcrypto/pull/39)
